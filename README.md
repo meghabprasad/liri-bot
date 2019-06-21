@@ -16,7 +16,7 @@ Instructions for Command line arguments:
         node liri.js
 2. Inquirer prompts "What would you like to do" 
 
-    Response Options: 
+    Input Options: 
 
         a. concert-this 'artist name'
 
