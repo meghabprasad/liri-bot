@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/meghabprasad/liri-bot/issues"
   },
-  "homepage": "https://github.com/meghabprasad/liri-bot#readme"
+  "homepage": "https://github.com/meghabprasad/liri-bot#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "inquirer": "^6.4.0"
+  }
 }
