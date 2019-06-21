@@ -7,6 +7,7 @@ var moment = require("moment");
 
 
 var userInput = "";
+var empty;
 inquirer.prompt([
     {
         type: "input",
@@ -18,11 +19,17 @@ inquirer.prompt([
     console.log(userInput);
     var userInputArr = userInput.split(" ");
     console.log(userInputArr);
+    if (userInputArr.length === 1){
+        empty = true;
+    }
     var inputName = userInputArr.splice(1).join(" ");
     //console.log(inputName);
     
     switch (userInputArr[0]){
         case "concert-this":
+            if(empty){
+                inputName = "Sia";
+            }
             axios.get("https://rest.bandsintown.com/artists/" + inputName + "/events?app_id=codingbootcamp").then(
                 function(response){
                     //console.log((response.data[0].venue));
@@ -58,7 +65,9 @@ inquirer.prompt([
         
         case "spotify-this-song":
             var spotify = new Spotify(keys.spotify);
-            
+            if (empty){
+                inputName = "The Sign";
+            }
             spotify.search({ type: 'track', query: inputName }, function(err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
@@ -84,6 +93,9 @@ inquirer.prompt([
         // * Language of the movie.
         // * Plot of the movie.
         // * Actors in the movie.
+            if (empty){
+                inputName = "Frozen";
+            }
             axios.get("http://www.omdbapi.com/?t="+inputName+"&y=&plot=short&apikey=trilogy").then(
                 function(response) {
                     //console.log(response.data);
